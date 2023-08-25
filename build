@@ -1,0 +1,8 @@
+#!/usr/bin/env ruby
+# frozen_string_literal: true
+
+Dir.glob("*").reverse.each do |dir|
+  next unless File.directory?(dir)
+
+  system("docker build -t demo:#{dir} #{dir}")
+end
